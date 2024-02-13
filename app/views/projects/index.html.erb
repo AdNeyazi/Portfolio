@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+  <%= stylesheet_link_tag 'projects', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <style>
+    /* Custom CSS variables */
+    :root {
+      --bgDark: #252525;
+      --white: #ffffff;
+      --primary: #007bff;
+      --secondary: #ffffff;
+    }
+
+    /* Reset styles */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bgDark);
+      color: var(--white);
+    }
+
+    .container {
+      max-width: 1152px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 100;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .btn {
+      padding: 0.6rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid transparent;
+      outline: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all .2s ease;
+      background-color: var(--primary);
+      color: var(--secondary);
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+
+    .btn:hover {
+      background: transparent;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .project-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .project-card {
+      width: calc(33.33% - 20px);
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+
+    .project-card h2 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h1>My Projects</h1>
+
+  <% if current_user.admin? %>
+    <%= link_to 'New Project', new_project_path, class: "btn btn-primary" %>
+  <% end %>
+
+  <div class="project-cards">
+    <% @projects.each do |project| %>
+      <div class="project-card">
+        <h2><%= project.title %><hr></h2>
+        <p><%= project.description %></p>
+        <!-- Add any other project details you want to display -->
+        <a href="<%= project_path(project) %>" class="btn btn-secondary">View Project</a>
+      </div>
+    <% end %>
+  </div>
+</div>
+</body>
+</html>

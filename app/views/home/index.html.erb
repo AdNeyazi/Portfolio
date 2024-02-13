@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS variables */
+    :root {
+      --bgDark: #252525;
+      --white: #ffffff;
+      --primary: #007bff;
+      --secondary: #ffffff;
+    }
+
+    /* Reset styles */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bgDark);
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 4rem 0;
+    }
+
+    .hero .left img {
+      max-width: 100%;
+    }
+
+    .hero .right h6 {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .right h1 {
+      font-size: 4rem;
+      font-weight: 100;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    .hero .right h1 span {
+      color: var(--primary);
+    }
+
+    .hero .right p {
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--secondary);
+      border: 2px solid var(--primary);
+      padding: 0.6rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: all .2s ease;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--primary);
+    }
+    .rounded-image {
+      border-radius: 50%;
+    }
+    .container.hero{
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container hero">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="left text-center">
+          <img src="https://lh3.googleusercontent.com/a/ACg8ocIa5NERWBXNtyUHVtJoWHHjMSVBbpM-zKoCH46vwzamuw=s288-c-no" alt="alternatetext" class="rounded-image" style="width:300px;height:300px;">
+          <div class="mt-3">
+          <h6 class="display-3 lead" ><b><i>Adnan Neyazi</i></b></h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="right">
+          <h1>I'm a Web Developer <span>!</span></h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque illum nam nobis, minima laudantium fugit sequi nostrum quod impedit, beatae necessitatibus praesentium optio labore nemo!</p>
+          <button class="btn btn-primary">Download CV</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

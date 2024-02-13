@@ -1,0 +1,25 @@
+<body>
+  <div class="container">
+    <h1 class="text-center" >Welcome to My Awesome Porfolio App</h1>
+    <hr>
+    <div class="welcome-text">
+      <p>This is the home page of our application.</p>
+      
+      <% if user_signed_in? %>
+        <div class="user-info">
+          <p>Hello, <%= current_user.email %>!</p>
+          <% if current_user.admin? %>
+            <p class="user-role">You are an admin user.</p>
+          <% else %>
+            <p class="user-role">You are a regular user.</p>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="login-message">Please sign in to access your personalized content.</p>
+        <a href="<%= new_user_session_path %>" class="cta-button">Sign In</a>
+      <% end %>
+
+      <%= link_to "Ask me", "#", class: "ask-me-link" %>
+    </div>
+  </div>
+</body>

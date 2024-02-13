@@ -1,0 +1,102 @@
+<%= form_with(model: about_content) do |form| %>
+  <% if about_content.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(about_content.errors.count, "error") %> prohibited this about_content from being saved:</h2>
+
+      <ul>
+        <% about_content.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :subtitle, style: "display: block" %>
+    <%= form.text_field :subtitle %>
+  </div>
+
+  <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div>
+    <%= form.label :author_name, style: "display: block" %>
+    <%= form.text_field :author_name %>
+  </div>
+
+  <div>
+    <%= form.label :author_bio, style: "display: block" %>
+    <%= form.text_area :author_bio %>
+  </div>
+
+  <div>
+    <%= form.label :contact_information, style: "display: block" %>
+    <%= form.text_field :contact_information %>
+  </div>
+
+  <div>
+    <%= form.label :skills, style: "display: block" %>
+    <%= form.text_area :skills %>
+  </div>
+
+  <div>
+    <%= form.label :education, style: "display: block" %>
+    <%= form.text_area :education %>
+  </div>
+
+  <div>
+    <%= form.label :experience, style: "display: block" %>
+    <%= form.text_area :experience %>
+  </div>
+
+  <div>
+    <%= form.label :interests, style: "display: block" %>
+    <%= form.text_area :interests %>
+  </div>
+
+  <div>
+    <%= form.label :mission_statement, style: "display: block" %>
+    <%= form.text_area :mission_statement %>
+  </div>
+
+  <div>
+    <%= form.label :testimonials, style: "display: block" %>
+    <%= form.text_area :testimonials %>
+  </div>
+
+  <div>
+    <%= form.label :achievements, style: "display: block" %>
+    <%= form.text_area :achievements %>
+  </div>
+
+  <div>
+    <%= form.label :publications, style: "display: block" %>
+    <%= form.text_area :publications %>
+  </div>
+
+  <div>
+    <%= form.label :timeline, style: "display: block" %>
+    <%= form.text_area :timeline %>
+  </div>
+
+  <div>
+    <%= form.label :external_links, style: "display: block" %>
+    <%= form.text_area :external_links %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

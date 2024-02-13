@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div id="<%= dom_id @about_content %>">
+        <h2><%= @about_content.title %></h2>
+        <% if @about_content.subtitle.present? %>
+        <h4><%= @about_content.subtitle %></h4>
+        <% end %>
+
+        <% if @about_content.image.present? %>
+        <%= image_tag @about_content.image, class: "img-responsive", alt: "About Image" %>
+        <% end %>
+
+        <% if @about_content.author_name.present? %>
+        <p><strong>Author Name:</strong> <%= @about_content.author_name %></p>
+        <% end %>
+
+        <% if @about_content.author_bio.present? %>
+        <p><strong>Author Bio:</strong> <%= @about_content.author_bio %></p>
+        <% end %>
+
+        <% if @about_content.contact_information.present? %>
+        <p><strong>Contact Information:</strong> <%= @about_content.contact_information %></p>
+        <% end %>
+
+        <% if @about_content.skills.present? %>
+        <p><strong>Skills:</strong> <%= @about_content.skills %></p>
+        <% end %>
+
+        <% if @about_content.education.present? %>
+        <p><strong>Education:</strong> <%= @about_content.education %></p>
+        <% end %>
+
+        <% if @about_content.experience.present? %>
+        <p><strong>Experience:</strong> <%= @about_content.experience %></p>
+        <% end %>
+
+        <% if @about_content.interests.present? %>
+        <p><strong>Interests:</strong> <%= @about_content.interests %></p>
+        <% end %>
+
+        <% if @about_content.mission_statement.present? %>
+        <p><strong>Mission Statement:</strong> <%= @about_content.mission_statement %></p>
+        <% end %>
+
+        <% if @about_content.testimonials.present? %>
+        <p><strong>Testimonials:</strong> <%= @about_content.testimonials %></p>
+        <% end %>
+
+        <% if @about_content.achievements.present? %>
+        <p><strong>Achievements:</strong> <%= @about_content.achievements %></p>
+        <% end %>
+
+        <% if @about_content.publications.present? %>
+        <p><strong>Publications:</strong> <%= @about_content.publications %></p>
+        <% end %>
+
+        <% if @about_content.timeline.present? %>
+        <p><strong>Timeline:</strong> <%= @about_content.timeline %></p>
+        <% end %>
+
+        <% if @about_content.external_links.present? %>
+        <p><strong>External Links:</strong> <%= @about_content.external_links %></p>
+        <% end %>
+
+        <hr>
+
+        <% if @about_content.content.present? %>
+        <p><strong>Content:</strong></p>
+        <div><%= @about_content.content.html_safe %></div> <!-- Use html_safe to render HTML content -->
+        <% end %>
+
+        <hr>
+
+        <div class="text-center">
+          <% if current_user.admin? %>
+          <%= link_to "Edit this about content", edit_about_content_path(@about_content), class: "btn btn-primary" %>
+          <%= button_to "Destroy this about content", @about_content, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <% end %>
+
+          <%= link_to "Back to about contents", about_contents_path, class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
