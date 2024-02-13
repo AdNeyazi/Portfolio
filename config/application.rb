@@ -18,5 +18,6 @@ module RailsApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.secret_key_base = '5084d86a63266927db4106faa3d938b9304068db999cb7b1d26edc25709cdbdabebb8013cedbfe28e2565eca81aaa8efe967dc3af49a596f34034bdb9b814102'
   end
 end
