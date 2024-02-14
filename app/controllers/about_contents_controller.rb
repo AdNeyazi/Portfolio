@@ -1,5 +1,6 @@
 class AboutContentsController < ApplicationController
   before_action :set_about_content, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /about_contents or /about_contents.json
   def index

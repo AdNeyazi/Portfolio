@@ -71,3 +71,4 @@ group :test do
 
 end
 gem 'devise'
+gem 'pristine', '~> 0.0.3'

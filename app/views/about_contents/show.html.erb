@@ -4,110 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    /* Style for the container */
+    /* Additional custom styles */
+    body {
+      background-color: #f8f9fa; /* Light gray background */
+      padding-top: 20px;
+    }
+
     .container {
-      margin-top: 20px;
-      font-family: Arial, sans-serif;
+      background-color: #fff; /* White background */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
     }
 
-    /* Style for the headings */
-    h2 {
-      font-size: 28px;
-      color: #333;
-      margin-bottom: 15px;
-    }
-
-    h4 {
-      font-size: 20px;
-      color: #666;
-      margin-bottom: 15px;
-    }
-
-    /* Style for the paragraphs */
-    p {
-      font-size: 18px;
-      color: #444;
-      margin-bottom: 12px;
-    }
-
-    /* Style for the hr tags */
-    hr {
-      border: 1px solid #ddd;
-      margin: 20px 0;
-    }
-
-    /* Style for the buttons */
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #0056b3;
-    }
-
-    .btn-danger {
-      background-color: #dc3545;
-    }
-
-    .btn-danger:hover {
-      background-color: #bd2130;
-    }
-
-    /* Style for the text center */
-    .text-center {
-      text-align: center;
-    }
-
-    /* Style for the image */
     .about-image {
       max-width: 100%;
       height: auto;
       margin-bottom: 20px;
     }
 
-    /* Additional styling for the container */
-    .container {
-      background-color: #f9f9f9;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    .btn-group {
+      margin-top: 20px;
     }
-
   </style>
 </head>
 <body>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div id="<%= dom_id @about_content %>">
-        <h2><%= @about_content.title %></h2>
-        <% if @about_content.subtitle.present? %>
-        <h4><%= @about_content.subtitle %></h4>
-        <% end %>
+    <div class="col-md-8 offset-md-2">
+      <h2 class="text-center"><%= @about_content.title %></h2>
+      <% if @about_content.subtitle.present? %>
+      <h4 class="text-center"><%= @about_content.subtitle %></h4>
+      <% end %>
 
-        <% if @about_content.image.present? %>
-        <% image_url = @about_content.image.start_with?('http') ? @about_content.image : "https://example.com#{@about_content.image}" %>
-        <%= image_tag image_url, class: "about-image", alt: "About Image" %>
-        <% end %>
-        <% if @about_content.author_name.present? %>
-        <p><strong>Author Name:</strong> <%= @about_content.author_name %></p>
-        <% end %>
+      <% if @about_content.image.present? %>
+      <% image_url = @about_content.image.start_with?('http') ? @about_content.image : "https://example.com#{@about_content.image}" %>
+      <%= image_tag image_url, class: "about-image mx-auto d-block", alt: "About Image" %>
+      <% end %>
 
-        <% if @about_content.author_bio.present? %>
-        <p><strong>Author Bio:</strong> <%= @about_content.author_bio %></p>
-        <% end %>
+      <% if @about_content.author_name.present? %>
+      <p><strong>Author Name:</strong> <%= @about_content.author_name %></p>
+      <% end %>
 
-        <% if @about_content.contact_information.present? %>
+      <% if @about_content.author_bio.present? %>
+      <p><strong>Author Bio:</strong> <%= @about_content.author_bio %></p>
+      <% end %>
+
+      <% if @about_content.contact_information.present? %>
         <p><strong>Contact Information:</strong> <%= @about_content.contact_information %></p>
         <% end %>
 
@@ -151,23 +97,19 @@
         <p><strong>External Links:</strong> <%= @about_content.external_links %></p>
         <% end %>
 
-        <hr>
+      <hr>
 
-        <% if @about_content.content.present? %>
-        <p><strong>Content:</strong></p>
-        <div><%= @about_content.content.html_safe %></div> <!-- Use html_safe to render HTML content -->
+      <% if @about_content.content.present? %>
+      <p><strong>Content:</strong></p>
+      <div><%= @about_content.content.html_safe %></div>
+      <% end %>
+
+      <div class="btn-group d-flex justify-content-center">
+        <% if current_user.admin? %>
+        <%= link_to "Edit", edit_about_content_path(@about_content), class: "btn btn-primary mr-2" %>
+        <%= button_to "Delete", @about_content, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
         <% end %>
-
-        <hr>
-
-        <div class="text-center">
-          <% if current_user.admin? %>
-          <%= link_to "Edit this about content", edit_about_content_path(@about_content), class: "btn btn-primary" %>
-          <%= button_to "Destroy this about content", @about_content, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-          <% end %>
-
-          <%= link_to "Back to about contents", about_contents_path, class: "btn btn-default" %>
-        </div>
+        <%= link_to "Back", about_contents_path, class: "btn btn-secondary" %>
       </div>
     </div>
   </div>

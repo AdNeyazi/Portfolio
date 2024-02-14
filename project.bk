@@ -23,3 +23,54 @@
     </div>
   </div>
 </body>
+
+
+
+
+<% if @about_content.author_bio.present? %>
+        <p><strong>Author Bio:</strong> <%= @about_content.author_bio %></p>
+        <% end %>
+
+        <% if @about_content.contact_information.present? %>
+        <p><strong>Contact Information:</strong> <%= @about_content.contact_information %></p>
+        <% end %>
+
+        <% if @about_content.skills.present? %>
+        <p><strong>Skills:</strong> <%= @about_content.skills %></p>
+        <% end %>
+
+        <% if @about_content.education.present? %>
+        <p><strong>Education:</strong> <%= @about_content.education %></p>
+        <% end %>
+
+        <% if @about_content.experience.present? %>
+        <p><strong>Experience:</strong> <%= @about_content.experience %></p>
+        <% end %>
+
+        <% if @about_content.interests.present? %>
+        <p><strong>Interests:</strong> <%= @about_content.interests %></p>
+        <% end %>
+
+        <% if @about_content.mission_statement.present? %>
+        <p><strong>Mission Statement:</strong> <%= @about_content.mission_statement %></p>
+        <% end %>
+
+        <% if @about_content.testimonials.present? %>
+        <p><strong>Testimonials:</strong> <%= @about_content.testimonials %></p>
+        <% end %>
+
+        <% if @about_content.achievements.present? %>
+        <p><strong>Achievements:</strong> <%= @about_content.achievements %></p>
+        <% end %>
+
+        <% if @about_content.publications.present? %>
+        <p><strong>Publications:</strong> <%= @about_content.publications %></p>
+        <% end %>
+
+        <% if @about_content.timeline.present? %>
+        <p><strong>Timeline:</strong> <%= @about_content.timeline %></p>
+        <% end %>
+
+        <% if @about_content.external_links.present? %>
+        <p><strong>External Links:</strong> <%= @about_content.external_links %></p>
+        <% end %>
