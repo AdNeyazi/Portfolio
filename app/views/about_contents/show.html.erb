@@ -32,28 +32,32 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h2 class="text-center"><%= @about_content.title %></h2>
-      <% if @about_content.subtitle.present? %>
-      <h4 class="text-center"><%= @about_content.subtitle %></h4>
-      <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <% if @about_content.present? %>
+        <h2 class="text-center"><%= @about_content.title %></h2>
+        <% if @about_content.subtitle.present? %>
+        <h4 class="text-center"><%= @about_content.subtitle %></h4>
+        <% end %>
+        <!-- Other content -->
+        <% else %>
+        <p>No content available.</p>
+        <% end %>
+        <% if @about_content.image.present? %>
+        <% image_url = @about_content.image.start_with?('http') ? @about_content.image : "https://example.com#{@about_content.image}" %>
+        <%= image_tag image_url, class: "about-image mx-auto d-block", alt: "About Image" %>
+        <% end %>
 
-      <% if @about_content.image.present? %>
-      <% image_url = @about_content.image.start_with?('http') ? @about_content.image : "https://example.com#{@about_content.image}" %>
-      <%= image_tag image_url, class: "about-image mx-auto d-block", alt: "About Image" %>
-      <% end %>
+        <% if @about_content.author_name.present? %>
+        <p><strong>Author Name:</strong> <%= @about_content.author_name %></p>
+        <% end %>
 
-      <% if @about_content.author_name.present? %>
-      <p><strong>Author Name:</strong> <%= @about_content.author_name %></p>
-      <% end %>
+        <% if @about_content.author_bio.present? %>
+        <p><strong>Author Bio:</strong> <%= @about_content.author_bio %></p>
+        <% end %>
 
-      <% if @about_content.author_bio.present? %>
-      <p><strong>Author Bio:</strong> <%= @about_content.author_bio %></p>
-      <% end %>
-
-      <% if @about_content.contact_information.present? %>
+        <% if @about_content.contact_information.present? %>
         <p><strong>Contact Information:</strong> <%= @about_content.contact_information %></p>
         <% end %>
 
@@ -97,23 +101,23 @@
         <p><strong>External Links:</strong> <%= @about_content.external_links %></p>
         <% end %>
 
-      <hr>
+        <hr>
 
-      <% if @about_content.content.present? %>
-      <p><strong>Content:</strong></p>
-      <div><%= @about_content.content.html_safe %></div>
-      <% end %>
-
-      <div class="btn-group d-flex justify-content-center">
-        <% if current_user.admin? %>
-        <%= link_to "Edit", edit_about_content_path(@about_content), class: "btn btn-primary mr-2" %>
-        <%= button_to "Delete", @about_content, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        <% if @about_content.content.present? %>
+        <p><strong>Content:</strong></p>
+        <div><%= @about_content.content.html_safe %></div>
         <% end %>
-        <%= link_to "Back", about_contents_path, class: "btn btn-secondary" %>
+
+        <div class="btn-group d-flex justify-content-center">
+          <% if current_user.admin? %>
+          <%= link_to "Edit", edit_about_content_path(@about_content), class: "btn btn-primary mr-2" %>
+          <%= button_to "Delete", @about_content, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <% end %>
+          <%= link_to "Back", about_contents_path, class: "btn btn-secondary" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 </body>
 </html>
