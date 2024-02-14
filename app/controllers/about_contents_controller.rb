@@ -63,11 +63,11 @@ class AboutContentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_about_content
-      @about_content = AboutContent.find(params[:id])
+      @about_content = AboutContent.first
     end
 
-    # Only allow a list of trusted parameters through.
-    def about_content_params
-      params.require(:about_content).permit(:title, :subtitle, :image, :author_name, :author_bio, :contact_information, :skills, :education, :experience, :interests, :mission_statement, :testimonials, :achievements, :publications, :timeline, :external_links, :content)
-    end
+  # Only allow a list of trusted parameters through.
+  def about_content_params
+    params.require(:about_content).permit(:title, :subtitle, :image, :author_name, :author_bio, :contact_information, :skills, :education, :experience, :interests, :mission_statement, :testimonials, :achievements, :publications, :timeline, :external_links, :content)
+  end
 end
