@@ -17,7 +17,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_095857) do
   create_table "about_contents", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
-    t.string "image"
     t.string "author_name"
     t.text "author_bio"
     t.string "contact_information"

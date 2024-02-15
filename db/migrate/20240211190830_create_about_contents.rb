@@ -3,7 +3,6 @@ class CreateAboutContents < ActiveRecord::Migration[7.0]
     create_table :about_contents do |t|
       t.string :title
       t.string :subtitle
-      t.string :image
       t.string :author_name
       t.text :author_bio
       t.string :contact_information
