@@ -19,12 +19,6 @@
       padding: 30px;
     }
 
-    .about-image {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 20px;
-    }
-
     .btn-group {
       margin-top: 20px;
     }
@@ -43,10 +37,6 @@
         <!-- Other content -->
         <% else %>
         <p>No content available.</p>
-        <% end %>
-        <% if @about_content.image.present? %>
-        <% image_url = @about_content.image.start_with?('http') ? @about_content.image : "https://example.com#{@about_content.image}" %>
-        <%= image_tag image_url, class: "about-image mx-auto d-block", alt: "About Image" %>
         <% end %>
 
         <% if @about_content.author_name.present? %>
