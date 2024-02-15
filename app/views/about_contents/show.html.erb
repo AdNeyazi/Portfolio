@@ -70,10 +70,6 @@
         <% end %>
 
         <% if @about_content.experience.present? %>
-        <p><strong>Experience:</strong> <%= @about_content.experience %></p>
-        <% end %>
-
-        <% if @about_content.interests.present? %>
         <p><strong>Interests:</strong> <%= @about_content.interests %></p>
         <% end %>
 
@@ -87,6 +83,10 @@
 
         <% if @about_content.achievements.present? %>
         <p><strong>Achievements:</strong> <%= @about_content.achievements %></p>
+        <p><strong>Experience:</strong> <%= @about_content.experience %></p>
+        <% end %>
+
+        <% if @about_content.interests.present? %>
         <% end %>
 
         <% if @about_content.publications.present? %>
