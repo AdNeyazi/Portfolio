@@ -63,7 +63,7 @@ class AboutContentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_about_content
-      @about_content = AboutContent.first
+      @about_content = AboutContent.find(params[:id])
     end
 
   # Only allow a list of trusted parameters through.
