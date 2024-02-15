@@ -1,0 +1,63 @@
+<%= form_with(model: @resume, local: true) do |form| %>
+  <% if @resume.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+
+      <ul>
+        <% @resume.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_area :summary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :degree %>
+    <%= form.text_area :degree %>
+  </div>
+
+  <div class="field">
+    <%= form.label :college %>
+    <%= form.text_area :college %>
+  </div>
+
+  <div class="field">
+    <%= form.label :university %>
+    <%= form.text_area :university %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_name %>
+    <%= form.text_area :company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :experience %>
+    <%= form.text_area :experience %>
+  </div>
+
+  <div class="field">
+    <%= form.label :experience_summary %>
+    <%= form.text_area :experience_summary %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

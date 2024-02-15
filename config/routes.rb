@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
   root 'home#index'
   resources :projects
+  # resources :resumes
+  get '/resume', to: 'resumes#show', id: 1, as: 'resume'
 end

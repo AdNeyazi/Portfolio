@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Resume</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title"><%= @resume.name %></h2>
+                    <p class="card-text"><strong>Position:</strong> <%= @resume.position %></p>
+                    <hr>
+                    <h4>Summary</h4>
+                    <p><%= @resume.summary %></p>
+                    <hr>
+                    <h4>Education</h4>
+                    <p><strong>Degree:</strong> <%= @resume.degree %></p>
+                    <p><strong>College:</strong> <%= @resume.college %></p>
+                    <p><strong>University:</strong> <%= @resume.university %></p>
+                    <hr>
+                    <h4>Work Experience</h4>
+                    <p><strong>Company Name:</strong> <%= @resume.company_name %></p>
+                    <p><strong>Experience:</strong> <%= @resume.experience %> years</p>
+                    <p><%= @resume.experience_summary %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
